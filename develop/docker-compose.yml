@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  roadrunner:
+    container_name: roadrunner-graphql-dev
+    image: "roadrunner-graphql:local"
+    user: $UID
+    build:
+      dockerfile: Dockerfile
+      args:
+        PHP_IMAGE_VERSION: ${PHP_IMAGE_VERSION}
+        RR_VERSION: ${RR_VERSION}
+    environment:
+      PHP_IDE_CONFIG: serverName=graphql-example.local
+      XDEBUG_MODE: debug
+      XDEBUG_SESSION: 1
+      XDEBUG_CONFIG: client_host=host.docker.internal
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./../:/data"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
