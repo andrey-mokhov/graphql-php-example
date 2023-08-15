@@ -6,44 +6,44 @@ For install example project run:
 
 Cloning repository
 ```shell
-$ git clone git@github.com:andrey-mokhov/graphql-php-example.git
+git clone git@github.com:andrey-mokhov/graphql-php-example.git
 ```
 
 change branch
 ```shell
-$ git checkout spiral
+git checkout spiral
 ```
 
 run docker
 ```shell
-$ make install
+make install
 ```
 
 ## other times
 
 start docker
 ```shell
-$ make up
+make up
 ```
 
 stop docker:
 ```shell
-$ make down
+make down
 ```
 
 ## other commands
 
-restart dockers
+restart docker
 ```shell
-$ make r
+make r
 ```
 
 run shell
 ```shell
-$ make rr
+make rr
 ```
 
 rebuild
 ```shell
-$ make build
+make build
 ```
