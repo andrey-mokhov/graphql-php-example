@@ -4,6 +4,16 @@
 
 For install example project run:
 
+Cloning repository
+```shell
+$ git clone git@github.com:andrey-mokhov/graphql-php-example.git
+```
+
+change branch
+```shell
+$ git checkout spiral
+```
+
 ```shell
 $ make install
 ```
