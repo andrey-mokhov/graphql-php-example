@@ -14,6 +14,7 @@ change branch
 $ git checkout spiral
 ```
 
+run docker
 ```shell
 $ make install
 ```
