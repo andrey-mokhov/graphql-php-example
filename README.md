@@ -9,9 +9,9 @@ Cloning repository
 git clone git@github.com:andrey-mokhov/graphql-php-example.git
 ```
 
-change branch
+change current dir
 ```shell
-git checkout spiral
+cd spiral
 ```
 
 run docker

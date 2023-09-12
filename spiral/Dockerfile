@@ -17,11 +17,12 @@ RUN apk update && apk add --no-cache \
   linux-headers \
   libzip-dev \
   unzip \
-  bash \
   && apk add $PHPIZE_DEPS \
-  && pecl install xdebug \
-  && docker-php-ext-install zip sockets opcache \
-  && docker-php-ext-enable xdebug
+  && docker-php-ext-install zip sockets opcache
+
+
+# RUN pecl install xdebug \
+#   && docker-php-ext-enable xdebug
 
 WORKDIR /data
 CMD ["/usr/bin/rr", "serve"]
