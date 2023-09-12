@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application;
 
+use Andi\GraphQL\Spiral\Bootloader\GraphQLBootloader;
 use Spiral\Boot\Bootloader\CoreBootloader;
 use Spiral\Bootloader as Framework;
 use Spiral\Bootloader\Views\TranslatedCacheBootloader;
@@ -69,6 +70,8 @@ class Kernel extends \Spiral\Framework\Kernel
 
         // Configure route groups, middleware for route groups
         Bootloader\RoutesBootloader::class,
+
+        GraphQLBootloader::class,
 
         // Fast code prototyping
         PrototypeBootloader::class,
