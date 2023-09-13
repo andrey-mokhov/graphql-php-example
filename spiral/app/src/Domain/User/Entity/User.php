@@ -17,7 +17,7 @@ final class User
      * This is Gagarin?
      */
     #[ObjectField]
-    public readonly bool $isFirstAstronaut;
+    public readonly bool $isFirstCosmonaut;
 
     #[ObjectField(description: 'This is Armstrong?')]
     public readonly bool $isFirstManOnTheMoon;
@@ -27,7 +27,7 @@ final class User
         private readonly string $middlename,
         #[ObjectField] private readonly string $lastname,
     ) {
-        $this->isFirstAstronaut = (
+        $this->isFirstCosmonaut = (
                 'Yuri' === $this->firstname
                 && 'Alekseyevich' === $this->middlename
                 && 'Gagarin' === $this->lastname
