@@ -19,9 +19,6 @@ final class User
     #[ObjectField]
     public readonly bool $isFirstCosmonaut;
 
-    #[ObjectField(description: 'This is Armstrong?')]
-    public readonly bool $isFirstManOnTheMoon;
-
     public function __construct(
         #[ObjectField] private readonly string $firstname,
         private readonly string $middlename,
@@ -35,16 +32,6 @@ final class User
                 'Юрий' === $this->firstname
                 && 'Алексеевич' === $this->middlename
                 && 'Гагарин' === $this->lastname
-            );
-
-        $this->isFirstManOnTheMoon = (
-                'Neil' === $this->firstname
-                && 'Alden' === $this->middlename
-                && 'Armstrong' === $this->lastname
-            ) || ( // on Russian
-                'Нил' === $this->firstname
-                && 'Олден' === $this->middlename
-                && 'Армстронг' === $this->lastname
             );
     }
 

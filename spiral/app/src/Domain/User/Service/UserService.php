@@ -10,14 +10,24 @@ use App\Domain\User\Entity\User;
 final class UserService
 {
     #[QueryField(description: 'Returns the profile of the first astronaut')]
-    public function getFirstAstronaut(): User
+    public function getFirstCosmonaut(): User
     {
         return new User('Yuri', 'Alekseyevich', 'Gagarin');
     }
 
-    #[QueryField(description: 'Returns the profile of the first man on moon')]
-    public function getFirstManOnTheMoon(): User
+    #[QueryField(type: 'Profile!')]
+    public function getLegend(): User
     {
         return new User('Neil', 'Alden', 'Armstrong');
+    }
+
+    #[QueryField(type: 'Profile!')]
+    public function getFirstManInOuterSpace(): array
+    {
+        return [
+            'firstname' => 'Alexei',
+            'middlename' => 'Arkhipovich',
+            'lastname' => 'Leonov'
+        ];
     }
 }
