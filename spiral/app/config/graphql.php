@@ -11,7 +11,7 @@ use Andi\GraphQL\TypeResolver\Middleware as Types;
 return [
     'url'          => getenv('GRAPHQL_URL') ?: '/api/graphql',
     'queryType'    => GraphQLConfig::DEFAULT_QUERY_TYPE,
-    'mutationType' => null,
+    'mutationType' => GraphQLConfig::DEFAULT_MUTATION_TYPE,
     'rootValue'    => null,
     'context'      => null,
 
