@@ -10,15 +10,15 @@
     },
     "require": {
         "php": ">=8.1",
-        "ext-sockets": "*",
         "ext-mbstring": "*",
-        "andi-lab/graphql-php": "*",
-        "andi-lab/graphql-php-spiral": "*",
-        "spiral/roadrunner-cli": "^2.4",
+        "ext-sockets": "*",
+        "andi-lab/graphql-php": "dev-master",
+        "andi-lab/graphql-php-spiral": "dev-master",
+        "spiral-packages/yii-error-handler-bridge": "^1.1",
         "spiral/framework": "^3.7",
         "spiral/nyholm-bridge": "^1.3",
-        "spiral-packages/yii-error-handler-bridge": "^1.1",
         "spiral/roadrunner-bridge": "^3.0",
+        "spiral/roadrunner-cli": "^2.4",
         "spiral/stempler-bridge": "^3.2"
     },
     "require-dev": {
