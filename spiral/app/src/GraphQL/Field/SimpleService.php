@@ -7,6 +7,7 @@ namespace App\GraphQL\Field;
 use Andi\GraphQL\Attribute\Argument;
 use Andi\GraphQL\Attribute\MutationField;
 use Andi\GraphQL\Attribute\QueryField;
+use App\GraphQL\Type\DirectionEnum;
 use App\GraphQL\Type\User;
 use App\GraphQL\Type\UserInterface;
 
@@ -23,5 +24,23 @@ final class SimpleService
     public function getUser(): UserInterface
     {
         return new User('Gagarin', 'Yuri', 'Alekseyevich');
+    }
+
+    #[MutationField]
+    public function login(#[Argument(type: 'LoginRequest')] array $input): ?User
+    {
+        if ('yuri' === $input['login']) {
+            return new User('Gagarin', 'Yuri', 'Alekseyevich');
+        }
+
+        return null;
+    }
+
+    #[QueryField]
+    public function inverseDirection(#[Argument] DirectionEnum $direction): DirectionEnum
+    {
+        return $direction === DirectionEnum::asc
+            ? DirectionEnum::desc
+            : DirectionEnum::asc;
     }
 }

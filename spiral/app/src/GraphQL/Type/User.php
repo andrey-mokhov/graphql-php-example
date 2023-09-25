@@ -52,6 +52,7 @@ class User implements UserInterface, InterfacesAwareInterface, FieldsAwareInterf
     public function getInterfaces(): iterable
     {
         yield UserInterface::class;
+        yield FullNameAwareInterface::class;
     }
 
     public function getFields(): iterable
