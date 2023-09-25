@@ -7,6 +7,7 @@ namespace App\GraphQL\Field;
 use Andi\GraphQL\Attribute\Argument;
 use Andi\GraphQL\Attribute\MutationField;
 use Andi\GraphQL\Attribute\QueryField;
+use App\GraphQL\Type\AnimalEnum;
 use App\GraphQL\Type\DirectionEnum;
 use App\GraphQL\Type\User;
 use App\GraphQL\Type\UserInterface;
@@ -42,5 +43,13 @@ final class SimpleService
         return $direction === DirectionEnum::asc
             ? DirectionEnum::desc
             : DirectionEnum::asc;
+    }
+
+    #[QueryField(type: 'Animal')]
+    public function inverseAnimal(#[Argument(type: AnimalEnum::class)] int $animal): int
+    {
+        return AnimalEnum::DOG === $animal
+            ? AnimalEnum::CAT
+            : AnimalEnum::DOG;
     }
 }
