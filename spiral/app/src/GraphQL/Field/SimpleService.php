@@ -9,8 +9,10 @@ use Andi\GraphQL\Attribute\MutationField;
 use Andi\GraphQL\Attribute\QueryField;
 use App\GraphQL\Type\AnimalEnum;
 use App\GraphQL\Type\DirectionEnum;
+use App\GraphQL\Type\Money;
 use App\GraphQL\Type\User;
 use App\GraphQL\Type\UserInterface;
+use App\GraphQL\Type\UserPetUnion;
 
 final class SimpleService
 {
@@ -51,5 +53,21 @@ final class SimpleService
         return AnimalEnum::DOG === $animal
             ? AnimalEnum::CAT
             : AnimalEnum::DOG;
+    }
+
+    #[QueryField(type: 'UserPetUnion!')]
+    public function userOrPet(): mixed
+    {
+        if (random_int(0, 9) < 5) {
+            return $this->getUser();
+        } else {
+            return 'Tom';
+        }
+    }
+
+    #[QueryField(type: Money::class)]
+    public function randomSum(): int
+    {
+        return random_int(10000, 50000);
     }
 }

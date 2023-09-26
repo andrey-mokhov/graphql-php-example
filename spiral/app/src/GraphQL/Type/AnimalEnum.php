@@ -6,6 +6,7 @@ namespace App\GraphQL\Type;
 
 use Andi\GraphQL\Definition\Field\EnumValueInterface;
 use Andi\GraphQL\Definition\Type\EnumTypeInterface;
+use Andi\GraphQL\Field\EnumValue;
 
 final class AnimalEnum implements EnumTypeInterface
 {
@@ -47,27 +48,6 @@ final class AnimalEnum implements EnumTypeInterface
             }
         };
 
-        yield new class implements EnumValueInterface {
-            public function getName(): string
-            {
-                return 'cat';
-            }
-
-            public function getDescription(): ?string
-            {
-                return null;
-            }
-
-            public function getDeprecationReason(): ?string
-            {
-                return null;
-            }
-
-            public function getValue(): mixed
-            {
-                // Any php-value
-                return AnimalEnum::CAT;
-            }
-        };
+        yield new EnumValue(name: 'cat', value: AnimalEnum::CAT);
     }
 }
