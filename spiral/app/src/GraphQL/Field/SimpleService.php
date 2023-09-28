@@ -9,6 +9,7 @@ use Andi\GraphQL\Attribute\MutationField;
 use Andi\GraphQL\Attribute\QueryField;
 use App\GraphQL\Type\AnimalEnum;
 use App\GraphQL\Type\DirectionEnum;
+use App\GraphQL\Type\ExampleAbstractObjectType;
 use App\GraphQL\Type\Money;
 use App\GraphQL\Type\User;
 use App\GraphQL\Type\UserInterface;
@@ -69,5 +70,11 @@ final class SimpleService
     public function randomSum(): int
     {
         return random_int(10000, 50000);
+    }
+
+    #[QueryField(type: ExampleAbstractObjectType::class)]
+    public function exampleAbstractObjectType(): User
+    {
+        return new User('Armstrong', 'Neil', 'Alden');
     }
 }
