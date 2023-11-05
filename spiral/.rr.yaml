@@ -20,11 +20,3 @@ http:
 server:
     command: 'php app.php'
     relay: pipes
-
-reload:
-    interval: 1s
-    patterns: [ ".php" ]
-    services:
-        http:
-            recursive: true
-            dirs: [ "/data" ]

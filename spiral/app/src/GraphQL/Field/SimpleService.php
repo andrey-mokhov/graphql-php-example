@@ -13,7 +13,6 @@ use App\GraphQL\Type\ExampleAbstractObjectType;
 use App\GraphQL\Type\Money;
 use App\GraphQL\Type\User;
 use App\GraphQL\Type\UserInterface;
-use App\GraphQL\Type\UserPetUnion;
 
 final class SimpleService
 {
@@ -38,6 +37,12 @@ final class SimpleService
         }
 
         return null;
+    }
+
+    #[MutationField]
+    public function signUp(#[Argument(type: 'RegistrationRequest!')] \stdClass $request): User
+    {
+        return new User($request->lastname, $request->firstname, $request->middlename);
     }
 
     #[QueryField]
