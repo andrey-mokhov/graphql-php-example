@@ -23,6 +23,8 @@ final class ExampleAbstractObjectType extends AbstractObjectType implements Reso
         ],
     ];
 
+    protected iterable $interfaces = [ExampleAbstractInterfaceType::class];
+
     private function getFirstname(User $user): string
     {
         return $user->getFirstname();
