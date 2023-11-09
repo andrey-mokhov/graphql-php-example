@@ -21,8 +21,8 @@ RUN apk update && apk add --no-cache \
   && docker-php-ext-install zip sockets opcache
 
 
-# RUN pecl install xdebug \
-#   && docker-php-ext-enable xdebug
+RUN pecl install xdebug \
+  && docker-php-ext-enable xdebug
 
 WORKDIR /data
 CMD ["/usr/bin/rr", "serve"]

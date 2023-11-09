@@ -82,4 +82,10 @@ final class SimpleService
     {
         return new User('Armstrong', 'Neil', 'Alden');
     }
+
+    #[QueryField(type: 'CoinSides!')]
+    public function tossUpACoin(): bool
+    {
+        return (bool) (random_int(0, 9) & 1);
+    }
 }
