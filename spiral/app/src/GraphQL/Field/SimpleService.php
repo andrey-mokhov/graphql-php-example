@@ -71,6 +71,16 @@ final class SimpleService
         }
     }
 
+    #[QueryField(type: 'ExampleAbstractUnionType!')]
+    public function exampleAbstractUnionType(): mixed
+    {
+        if (random_int(0, 9) < 5) {
+            return $this->exampleAbstractObjectType();
+        } else {
+            return 'Jerry';
+        }
+    }
+
     #[QueryField(type: Money::class)]
     public function randomSum(): int
     {
