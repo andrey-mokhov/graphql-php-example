@@ -7,6 +7,7 @@ namespace App\GraphQL\Field;
 use Andi\GraphQL\Attribute\Argument;
 use Andi\GraphQL\Attribute\MutationField;
 use Andi\GraphQL\Attribute\QueryField;
+use Andi\GraphQL\Definition\Field\TypeAwareInterface;
 use App\GraphQL\Type\AnimalEnum;
 use App\GraphQL\Type\DirectionEnum;
 use App\GraphQL\Type\ExampleAbstractObjectType;
@@ -30,7 +31,7 @@ final class SimpleService
     }
 
     #[MutationField]
-    public function login(#[Argument(type: 'LoginRequest')] array $input): ?User
+    public function login(#[Argument(type: 'LoginRequest', mode: TypeAwareInterface::IS_REQUIRED)] array $input): ?User
     {
         if ('yuri' === $input['login']) {
             return new User('Gagarin', 'Yuri', 'Alekseyevich');

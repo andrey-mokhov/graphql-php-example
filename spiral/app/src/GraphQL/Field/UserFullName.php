@@ -39,7 +39,7 @@ final class UserFullName implements
         return 'String';
     }
 
-    public function getTypeMode(): int
+    public function getMode(): int
     {
         return TypeAwareInterface::IS_REQUIRED;
     }
@@ -49,7 +49,7 @@ final class UserFullName implements
         yield new Argument(
             name: 'separator',
             type: 'String',
-            typeMode: TypeAwareInterface::IS_REQUIRED,
+            mode: TypeAwareInterface::IS_REQUIRED,
             defaultValue: ' ',
         );
     }

@@ -15,11 +15,11 @@ final class SquaringService extends AbstractObjectField implements QueryFieldInt
 {
     protected string $name = 'square';
     protected string $type = 'Int';
-    protected int $typeMode = TypeAwareInterface::IS_REQUIRED;
+    protected int $mode = TypeAwareInterface::IS_REQUIRED;
 
     public function getArguments(): iterable
     {
-        yield new Argument(name: 'num', type: 'Int', typeMode: TypeAwareInterface::IS_REQUIRED);
+        yield new Argument(name: 'num', type: 'Int', mode: TypeAwareInterface::IS_REQUIRED);
     }
 
     public function resolve(mixed $objectValue, array $args, mixed $context, Webonyx\ResolveInfo $info): mixed
