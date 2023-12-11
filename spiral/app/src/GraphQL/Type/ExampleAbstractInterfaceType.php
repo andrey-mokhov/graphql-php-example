@@ -17,7 +17,7 @@ final class ExampleAbstractInterfaceType extends AbstractInterfaceType implement
         'lastname' => 'String',
         'firstname' => [
             'type' => 'String',
-            'typeMode' => TypeAwareInterface::IS_REQUIRED,
+            'mode' => TypeAwareInterface::IS_REQUIRED,
             'description' => 'User firstname',
         ],
     ];

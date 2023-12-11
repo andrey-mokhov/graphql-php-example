@@ -3,7 +3,7 @@ MAKEFLAGS += --no-print-directory
 
 .EXPORT_ALL_VARIABLES:
 PHP_IMAGE_VERSION := 8.1-cli-alpine3.18
-RR_VERSION := 2023.3.6
+RR_VERSION := 2023.3.7
 ROOT_DIR := $(shell pwd)
 
 install:
@@ -22,9 +22,6 @@ up:
 down:
 	@docker-compose down
 
-r:
-	@make restart
-
 restart:
 	@make down
 	@make up
@@ -37,3 +34,12 @@ build:
 
 rr:
 	@docker exec -ti graphql-spiral-dev sh
+
+help:
+	@echo "make install          - first installation"
+	@echo "make up               - run docker"
+	@echo "make down             - stop docker"
+	@echo "make restart          - stop docker & run"
+	@echo "make composer_install - install dependencies"
+	@echo "make build            - build docker images"
+	@echo "make rr               - run shell on RoadRunner container"

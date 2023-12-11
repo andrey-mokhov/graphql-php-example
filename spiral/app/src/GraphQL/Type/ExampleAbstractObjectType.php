@@ -17,7 +17,7 @@ final class ExampleAbstractObjectType extends AbstractObjectType implements Reso
         'lastname' => 'String',
         'firstname' => [
             'type' => 'String',
-            'typeMode' => TypeAwareInterface::IS_REQUIRED,
+            'mode' => TypeAwareInterface::IS_REQUIRED,
             'description' => 'User firstname',
             'resolve' => [self::class, 'getFirstname'],
         ],

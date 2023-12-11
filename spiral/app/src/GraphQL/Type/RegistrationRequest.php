@@ -17,7 +17,7 @@ final class RegistrationRequest extends AbstractInputObjectType implements Parse
         'lastname' => 'String',
         'firstname' => [
             'type' => StringType::class,
-            'typeMode' => TypeAwareInterface::IS_REQUIRED,
+            'mode' => TypeAwareInterface::IS_REQUIRED,
         ],
         'middlename' => [
             'type' => 'String',
