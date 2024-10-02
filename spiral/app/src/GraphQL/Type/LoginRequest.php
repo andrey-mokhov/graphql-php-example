@@ -31,7 +31,7 @@ final class LoginRequest implements InputObjectTypeInterface
         yield new InputObjectField(
             name: 'password',
             type: 'String',
-            typeMode: TypeAwareInterface::IS_REQUIRED,
+            mode: TypeAwareInterface::IS_REQUIRED,
         );
     }
 }

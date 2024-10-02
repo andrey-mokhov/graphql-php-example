@@ -7,12 +7,13 @@ namespace App\GraphQL\Field;
 use Andi\GraphQL\Attribute\Argument;
 use Andi\GraphQL\Attribute\MutationField;
 use Andi\GraphQL\Attribute\QueryField;
+use Andi\GraphQL\Definition\Field\TypeAwareInterface;
 use App\GraphQL\Type\AnimalEnum;
 use App\GraphQL\Type\DirectionEnum;
+use App\GraphQL\Type\ExampleAbstractObjectType;
 use App\GraphQL\Type\Money;
 use App\GraphQL\Type\User;
 use App\GraphQL\Type\UserInterface;
-use App\GraphQL\Type\UserPetUnion;
 
 final class SimpleService
 {
@@ -30,13 +31,19 @@ final class SimpleService
     }
 
     #[MutationField]
-    public function login(#[Argument(type: 'LoginRequest')] array $input): ?User
+    public function login(#[Argument(type: 'LoginRequest', mode: TypeAwareInterface::IS_REQUIRED)] array $input): ?User
     {
         if ('yuri' === $input['login']) {
             return new User('Gagarin', 'Yuri', 'Alekseyevich');
         }
 
         return null;
+    }
+
+    #[MutationField]
+    public function signUp(#[Argument(type: 'RegistrationRequest!')] \stdClass $request): User
+    {
+        return new User($request->lastname, $request->firstname, $request->middlename);
     }
 
     #[QueryField]
@@ -65,9 +72,31 @@ final class SimpleService
         }
     }
 
+    #[QueryField(type: 'ExampleAbstractUnionType!')]
+    public function exampleAbstractUnionType(): mixed
+    {
+        if (random_int(0, 9) < 5) {
+            return $this->exampleAbstractObjectType();
+        } else {
+            return 'Jerry';
+        }
+    }
+
     #[QueryField(type: Money::class)]
     public function randomSum(): int
     {
         return random_int(10000, 50000);
+    }
+
+    #[QueryField(type: ExampleAbstractObjectType::class)]
+    public function exampleAbstractObjectType(): User
+    {
+        return new User('Armstrong', 'Neil', 'Alden');
+    }
+
+    #[QueryField(type: 'CoinSides!')]
+    public function tossUpACoin(): bool
+    {
+        return (bool) (random_int(0, 9) & 1);
     }
 }
